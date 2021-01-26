@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("This is the first room")
+    room_list = Room.objects
+    doors_list = ', '.join([d.wall for d in room_list])
+    return HttpResponse(output)
 
 def display_room(request, room_id):
     return HttpResponse("This is room %s." % room_id)
