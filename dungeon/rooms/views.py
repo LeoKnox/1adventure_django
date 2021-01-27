@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from .models import Room
 
 def index(request):
-    room_list = Room.objects
+    room_list = Room.objects.all()
     output = ', '.join([r.name for r in room_list])
     return HttpResponse(output)
 
