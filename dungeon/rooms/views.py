@@ -5,8 +5,8 @@ from .models import Room
 
 def index(request):
     room_list = Room.objects.all()
-    output = ', '.join([r.name for r in room_list])
-    return HttpResponse(output)
+    context = {'room_list': room_list}
+    return render(request, 'rooms/index.html', context)
 
 def display_room(request, room_id):
     return HttpResponse("This is room %s." % room_id)
