@@ -1,0 +1,9 @@
+{% if room_list %}
+    <ul>
+        {% for room in room_list %}
+            <li><a href="/rooms/{{room.id }}/">{{ room.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No Rooms! Go build Some!</p>
+{% endif %}
