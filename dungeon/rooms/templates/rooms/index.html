@@ -1,7 +1,7 @@
-{% if room_list %}
+{% if context %}
     <ul>
-        {% for room in room_list %}
-            <li><a href="/rooms/{{room.id }}/">{{ room.name }}</a></li>
+        {% for room in context %}
+            <li><a href="/rooms/{{ room.id }}/">{{ room.name }}</a></li>
         {% endfor %}
     </ul>
 {% else %}
