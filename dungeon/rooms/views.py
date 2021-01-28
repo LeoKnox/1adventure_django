@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Room
+from .models import Room, Door
 
 def index(request):
     room_list = Room.objects.all()
@@ -9,6 +9,8 @@ def index(request):
     return render(request, 'rooms/index.html', context)
 
 def display_room(request, room_id):
+    room = Room.objects.get(pk = room_id)
+    doors = Door.objects.get(room = room.name)
     return HttpResponse("This is room %s." % room_id)
 
 def edit_room(request, room_id):
