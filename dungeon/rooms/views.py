@@ -11,7 +11,8 @@ def index(request):
 def display_room(request, room_id):
     room = Room.objects.get(pk = room_id)
     doors = Door.objects.get(room = room.name)
-    return HttpResponse("This is room %s." % room_id)
+    context =  { 'room': room, 'door': doors }
+    return HttpResponse(request, 'rooms/single_room.html', context)
 
 def edit_room(request, room_id):
     return HttpResponse("Edit this room %s!" % room_id)
