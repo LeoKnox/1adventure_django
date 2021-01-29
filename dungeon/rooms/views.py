@@ -12,7 +12,7 @@ def display_room(request, room_id):
     try:
         room = Room.objects.get(pk = room_id)
         doors = Door.objects.get(room = room.name)
-        context =  { 'room': room, 'door': doors }
+        context =  { 'room': room, 'doors': doors }
     except room.DoesNotExist:
         raise Http404("Room does not exist")
     return HttpResponse(request, 'rooms/single_room.html', context)
