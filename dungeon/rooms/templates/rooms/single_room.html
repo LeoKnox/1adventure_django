@@ -1,1 +1,5 @@
 <h1>This is a single room display</h1>
+<p>Room: {{ room.name }}</p>
+<p>Description: {{ room.door }}</p>
+{% for door in doors %}
+    <p>{{ door.wall }}</p>
